@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE LOVERS</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Modern CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #1a120b;      /* Deep Espresso */
+            --header-color: #2c1e11;   /* Dark Chocolate */
+            --accent-color: #d4a373;   /* Warm Caramel */
+            --text-light: #ebd8b7;     /* Blanched Almond */
+            --white: #ffffff;
+            --card-bg: #251b10;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--header-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+        }
+
+        /* Logo Styling */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Links */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        /* Animated Hover Underline */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 20px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: calc(100% - 40px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(26, 18, 11, 0.85), rgba(26, 18, 11, 0.95)), 
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Elegant Button */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 14px 35px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Global Section Layouts */
+        section.content-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 50px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 163, 115, 0.2);
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Hover light effect (tutok-tutok the mouse) */
+        .menu-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(212, 163, 115, 0.35), 0 10px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .menu-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-card-info {
+            padding: 20px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .menu-item-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+
+        .menu-item-price {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .menu-item-desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Contacts & Footer Section */
+        footer {
+            background-color: var(--header-color);
+            padding: 60px 20px 20px;
+            border-top: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-col p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(235, 216, 183, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            section.content-section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=150&auto=format&fit=crop" alt="Coffee Shop Logo" class="logo-img">
+                <span class="brand-name">COFFEE LOVERS</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#contacts" class="nav-link">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Freshly Brewed <span>Daily Inspiration</span></h1>
+            <p>Step away from the rush. Sit down with a masterfully crafted espresso, artisan pastries, and a space designed to let you unwind.</p>
+            <a href="#menu" class="btn">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2 class="section-title">Our <span>Story</span></h2>
+        <p class="section-subtitle">Crafting micro-moments of joy since 2018</p>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <p>At Coffee Lovers, we believe coffee is more than just a morning routine—it's an art form, a community anchor, and a moment of daily peace.</p>
+                <p>Our beans are ethically sourced from single-origin farms across the globe, roasted locally in small batches to preserve their unique profiles, and brewed to flawless precision by our passionate baristas.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=600" alt="Coffee Roasting" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="content-section">
+        <h2 class="section-title">Popular <span>Brew</span>s</h2>
+        <p class="section-subtitle">Carefully selected, perfectly pulled</p>
+
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=400" alt="Cafe Latte" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Vanilla Latte</h3>
+                        <span class="menu-item-price">270.93</span>
+                    </div>
+                    <p class="menu-item-desc">Double shot espresso, velvety steamed milk, and organic house-made Madagascar vanilla syrup.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400" alt="Caramel Macchiato" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Caramel Macchiato</h3>
+                        <span class="menu-item-price">245.50</span>
+                    </div>
+                    <p class="menu-item-desc">Freshly steamed milk with vanilla-flavored syrup, marked with espresso and drizzled with caramel.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="nitro_cold_brew.jpg" alt="Cold Brew" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Nitro Cold Brew</h3>
+                        <span class="menu-item-price">184.76</span>
+                    </div>
+                    <p class="menu-item-desc">Our signature single-origin blend slow-steeped for 18 hours, nitrogen-infused for a creamy head.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=80&w=400" alt="Croissant" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Almond Croissant</h3>
+                        <span class="menu-item-price">123.17</span>
+                    </div>
+                    <p class="menu-item-desc">Flaky, golden-brown artisanal pastry layers filled with frangipane cream and topped with sliced almonds.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400" alt="Chocolate Chip Cookies" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Chocolate Chip Cookie</h3>
+                        <span class="menu-item-price">95.00</span>
+                    </div>
+                    <p class="menu-item-desc">Freshly baked, chewy artisanal cookies loaded with premium dark chocolate chunks.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400" alt="Oatmeal Raisin Cookie" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Oatmeal Raisin Cookie</h3>
+                        <span class="menu-item-price">88.00</span>
+                    </div>
+                    <p class="menu-item-desc">Wholesome rolled oats, plump sweet raisins, and a hint of warm cinnamon baked to perfection.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="images (2).jpg" alt="Double Chocolate Cookie" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Double Chocolate Cookie</h3>
+                        <span class="menu-item-price">105.00</span>
+                    </div>
+                    <p class="menu-item-desc">Rich cocoa cookie dough packed with white and milk chocolate chips for the ultimate indulgence.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="cookies.jpg" alt="S'mores Cookies made with Almond Flour" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">S'mores Cookies made with Almond Flour</h3>
+                        <span class="menu-item-price">95.00</span>
+                    </div>
+                    <p class="menu-item-desc">This gooey, and better for you s’mores cookie recipe has it all – honey graham crackers, melted chocolate, mini marshmallows, crispy edges, and a caramelized top. So good, you’ll be craving s’more. The best part about this recipe is that there is no campfire needed!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>COFFEE LOVERS</h3>
+                <p>Providing a peaceful space and artisanal roasts to elevate your everyday routines.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Hours</h3>
+                <p>Mon - Fri: 6:30 AM - 6:00 PM</p>
+                <p>Sat - Sun: 7:30 AM - 5:00 PM</p>
+            </div>
+            <div class="footer-col">
+                <h3>Find Us</h3>
+                <p>123 Roast Avenue, Suite 100</p>
+                <p>Quezon City</p>
+                <p>hello@coffeelovers.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Coffee lovers. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
