@@ -19,7 +19,7 @@
         }
 
         :root {
-            --bg-color: #1a120b;       /* Deep Espresso */
+            --bg-color: #1a120b;      /* Deep Espresso */
             --header-color: #2c1e11;   /* Dark Chocolate */
             --accent-color: #d4a373;   /* Warm Caramel */
             --text-light: #ebd8b7;     /* Blanched Almond */
@@ -234,11 +234,14 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(212, 163, 115, 0.1);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
+        /* Hover light effect (tutok-tutok the mouse) */
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(212, 163, 115, 0.35), 0 10px 25px rgba(0, 0, 0, 0.6);
         }
 
         .menu-card-img {
@@ -350,7 +353,7 @@
 
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#menu" class="nav-link">Menu</a></li>
                     <li><a href="#contacts" class="nav-link">Contacts</a></li>
@@ -359,7 +362,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>Freshly Brewed <span>Daily Inspiration</span></h1>
             <p>Step away from the rush. Sit down with a masterfully crafted espresso, artisan pastries, and a space designed to let you unwind.</p>
@@ -399,7 +402,18 @@
             </div>
 
             <div class="menu-card">
-                <img src="nitro_cold_brew.jpg" alt="Cold Brew" class="menu-card-img" height="80&" width="400">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400" alt="Caramel Macchiato" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Caramel Macchiato</h3>
+                        <span class="menu-item-price">245.50</span>
+                    </div>
+                    <p class="menu-item-desc">Freshly steamed milk with vanilla-flavored syrup, marked with espresso and drizzled with caramel.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="nitro_cold_brew.jpg" alt="Cold Brew" class="menu-card-img">
                 <div class="menu-card-info">
                     <div class="menu-item-header">
                         <h3 class="menu-item-title">Nitro Cold Brew</h3>
@@ -417,6 +431,50 @@
                         <span class="menu-item-price">123.17</span>
                     </div>
                     <p class="menu-item-desc">Flaky, golden-brown artisanal pastry layers filled with frangipane cream and topped with sliced almonds.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400" alt="Chocolate Chip Cookies" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Chocolate Chip Cookie</h3>
+                        <span class="menu-item-price">95.00</span>
+                    </div>
+                    <p class="menu-item-desc">Freshly baked, chewy artisanal cookies loaded with premium dark chocolate chunks.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400" alt="Oatmeal Raisin Cookie" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Oatmeal Raisin Cookie</h3>
+                        <span class="menu-item-price">88.00</span>
+                    </div>
+                    <p class="menu-item-desc">Wholesome rolled oats, plump sweet raisins, and a hint of warm cinnamon baked to perfection.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="images (2).jpg" alt="Double Chocolate Cookie" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Double Chocolate Cookie</h3>
+                        <span class="menu-item-price">105.00</span>
+                    </div>
+                    <p class="menu-item-desc">Rich cocoa cookie dough packed with white and milk chocolate chips for the ultimate indulgence.</p>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="cookies.jpg" alt="S'mores Cookies made with Almond Flour" class="menu-card-img">
+                <div class="menu-card-info">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">S'mores Cookies made with Almond Flour</h3>
+                        <span class="menu-item-price">95.00</span>
+                    </div>
+                    <p class="menu-item-desc">This gooey, and better for you s’mores cookie recipe has it all – honey graham crackers, melted chocolate, mini marshmallows, crispy edges, and a caramelized top. So good, you’ll be craving s’more. The best part about this recipe is that there is no campfire needed!</p>
                 </div>
             </div>
         </div>
